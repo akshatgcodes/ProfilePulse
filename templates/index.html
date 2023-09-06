@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+  <h1>Roast a GitHub profile.</h1>
+  <p class="hero-sub">
+    We pull real public stats from the GitHub API — repos, stars, languages,
+    activity, followers — and turn them into a roast card you can screenshot
+    and post. Stats are real. Commentary is not kind.
+  </p>
+
+  <form class="roast-form" action="{{ url_for('roast') }}" method="get">
+    <div class="input-row">
+      <span class="at-sign">@</span>
+      <input
+        type="text"
+        name="username"
+        placeholder="octocat"
+        autocomplete="off"
+        autofocus
+        required
+      >
+      <button type="submit">Roast me</button>
+    </div>
+  </form>
+
+  <div class="examples">
+    <span>Try:</span>
+    <a href="{{ url_for('roast', username='octocat') }}">octocat</a>
+    <a href="{{ url_for('roast', username='torvalds') }}">torvalds</a>
+    <a href="{{ url_for('roast', username='defunkt') }}">defunkt</a>
+  </div>
+</section>
+{% endblock %}

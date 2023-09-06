@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}ProfilePulse — GitHub Profile Roaster{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <a class="brand" href="{{ url_for('index') }}">
+        <span class="brand-pulse">📈</span> ProfilePulse
+      </a>
+      <p class="tagline">Type a GitHub username. Get roasted. Screenshot it anyway.</p>
+    </header>
+
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+      <p>Built with Flask + the GitHub REST API. Stats are real, roasts are procedurally generated, feelings are optional.</p>
+    </footer>
+  </div>
+</body>
+</html>
