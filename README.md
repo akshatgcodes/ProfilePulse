@@ -104,3 +104,7 @@ ProfilePulse/
 - "Last commit" is approximated as the most recent `pushed_at` timestamp
   across the user's public repos, since GitHub's REST API doesn't expose a
   single global "last commit" field without walking commit history per repo.
+
+## Notes
+
+Built as a focused, single-purpose tool - a GitHub profile roaster, nothing more, nothing less.
