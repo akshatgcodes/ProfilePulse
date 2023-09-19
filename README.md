@@ -108,3 +108,7 @@ ProfilePulse/
 ## Notes
 
 Built as a focused, single-purpose tool - a GitHub profile roaster, nothing more, nothing less.
+
+## Troubleshooting
+
+If something doesn't run as expected, double-check you're using the dependency versions noted above and running the exact commands from the "Run it" section.
