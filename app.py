@@ -12,6 +12,8 @@ Run:
     open http://localhost:5000
 """
 
+import os
+
 from flask import Flask, render_template, request
 import requests
 
@@ -25,6 +27,9 @@ HEADERS = {
     "Accept": "application/vnd.github+json",
     "User-Agent": "ProfilePulse-Roast-App",
 }
+# Optional: a GitHub token raises the API rate limit from 60 to 5,000 req/hour.
+if os.environ.get("GITHUB_TOKEN"):
+    HEADERS["Authorization"] = f"Bearer {os.environ['GITHUB_TOKEN']}"
 
 
 class GitHubLookupError(Exception):
