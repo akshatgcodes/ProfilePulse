@@ -58,6 +58,30 @@ export default function Home() {
           real stars, real activity gaps — turned into commentary that
           changes with the profile, not a script.
         </p>
+
+        {/* Live roaster: submits straight to the Flask app on this host */}
+        <form
+          action="/roast"
+          method="get"
+          className="mx-auto mt-10 flex w-full max-w-md flex-col gap-3 sm:flex-row"
+        >
+          <input
+            name="username"
+            required
+            placeholder="GitHub username, e.g. torvalds"
+            autoComplete="off"
+            className="flex-1 rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-neutral-500 focus:border-orange-400 focus:outline-none"
+          />
+          <button
+            type="submit"
+            className="rounded-lg bg-orange-500 px-6 py-3 font-semibold text-white transition hover:bg-orange-400"
+          >
+            Roast them
+          </button>
+        </form>
+        <p className="mt-3 text-xs text-neutral-500">
+          Live — runs against the real GitHub API.
+        </p>
       </header>
 
       {/* X Factor */}
@@ -142,11 +166,11 @@ export default function Home() {
       <section className="mx-auto w-full max-w-3xl px-6 py-16">
         <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8">
           <h2 className="text-sm font-semibold uppercase tracking-widest text-orange-400">
-            Run It
+            Run It Locally
           </h2>
           <p className="mt-3 text-sm text-neutral-400">
-            ProfilePulse is a local Flask app. This page is a showcase for it
-            — the actual roaster runs on your machine at{" "}
+            The roaster above is live on this site. To run your own copy, start
+            the Flask app and open{" "}
             <code className="rounded bg-white/10 px-1.5 py-0.5 font-mono text-neutral-200">
               localhost:5000
             </code>
@@ -159,8 +183,8 @@ python app.py
 # then open http://localhost:5000`}</code>
           </pre>
           <p className="mt-4 text-xs text-neutral-500">
-            Requires Python 3.8+. Uses unauthenticated GitHub REST API
-            requests (60/hour per IP).
+            Requires Python 3.8+. Set GITHUB_TOKEN to raise the GitHub API
+            limit from 60 to 5,000 requests/hour.
           </p>
         </div>
       </section>

@@ -14,7 +14,7 @@ Run:
 
 import os
 
-from flask import Flask, render_template, request
+from flask import Flask, redirect, render_template, request, url_for
 import requests
 
 from roast import build_roast_context
@@ -109,9 +109,16 @@ def fetch_github_data(username):
     return user, repos
 
 
-@app.route("/", methods=["GET"])
+@app.route("/app", methods=["GET"])
 def index():
     return render_template("index.html")
+
+
+@app.route("/", methods=["GET"])
+def landing():
+    # In production "/" is the landing page (landing/ static export, routed
+    # by vercel.json); locally, go straight to the app.
+    return redirect(url_for("index"))
 
 
 @app.route("/roast", methods=["GET", "POST"])
